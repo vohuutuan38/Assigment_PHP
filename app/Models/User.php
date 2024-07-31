@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    use softDeletes;
     const ROLE_ADMIN = 'Admin';
     const ROLE_USER = 'User';
 
@@ -48,4 +49,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed'
     ];
+    protected $dates = ['delete_at'];
 }
