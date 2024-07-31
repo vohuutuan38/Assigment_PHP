@@ -35,7 +35,7 @@ Route::post('login',[AuthController::class,'login'])->name('login');
 
 Route::get('register',[AuthController::class,'showFormRegister']);
 Route::post('register',[AuthController::class,'register'])->name('register');
-Route::post('logout',[AuthController::class,'logout'])->name('logout');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
 
 
 Route::get('/home', function () {
@@ -69,7 +69,7 @@ Route::get('product/detail/{id}', [ProductController::class,'chiTietSanPham'])->
 Route::get('/list-cart', [CartController::class,'listCart'])->name('cart.list');
 Route::post('/add-to-cart', [CartController::class,'addCart'])->name('cart.add');
 Route::post('/update-cart', [CartController::class,'updateCart'])->name('cart.update');
-Route::get('/home', [HomeController::class,'index'])->name('home.index');
+Route::get('/', [HomeController::class,'index'])->name('home.index');
 
 // ROUTER DƠN HÀNG
 Route::middleware('auth')->prefix('donhangs')

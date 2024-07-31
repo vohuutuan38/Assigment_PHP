@@ -29,13 +29,14 @@
     <div class="checkout-page-wrapper section-padding">
         <div class="container">
 
+            <form action="{{route('donhangs.store')}}" method="POST">
+                @csrf
             <div class="row">
                 <!-- Checkout Billing Details -->
                 <div class="col-lg-6">
                     <div class="checkout-billing-details-wrap">
                         <h5 class="checkout-title">Billing Details</h5>
                         <div class="billing-form-wrap">
-                            <form action="#">
                               <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
 
                                 <div class="single-input-item">
@@ -83,7 +84,7 @@
                                     <label for="ghi_chu">Ghi chú</label>
                                     <textarea name="ghi_chu" id="ghi_chu" cols="30" rows="3" placeholder="Nhập ghi chú"></textarea>
                                 </div>
-                            </form>
+                            
                         </div>
                     </div>
                 </div>
@@ -109,7 +110,7 @@
                                             <td>
                                                 <a href="{{route('products.detail',$key)}}">{{$item['ten_san_pham']}} <strong>{{$item['so_luong']}} </strong></a>
                                             </td>
-                                            <td>{{number_format($item['gia'])}} đ</td>
+                                            <td>{{number_format($item['gia'] * $item['so_luong'])}} đ</td>
                                         </tr>
 
                                         @endforeach
@@ -120,17 +121,24 @@
                                             <td>Sub Total</td>
                                             <td>
                                                 <strong>{{number_format($subTotal)}} đ</strong>
-                                                <input type="hidden" name="tien_hang">
+                                                <input type="hidden" name="tien_hang" value="{{$subTotal}}">
                                             </td>
 
                                         </tr>
                                         <tr>
                                             <td>Shipping</td>
-                                            <td><strong>{{number_format($shipping)}} đ</strong></td>
+                                            <td>
+                                                <strong>{{number_format($shipping)}} đ</strong>
+                                                <input type="hidden" name="tien_ship" value="{{$shipping}}">
+                                            </td>
+                                           
                                         </tr>
                                         <tr>
                                             <td>Total Amount</td>
-                                            <td><b>{{number_format($total)}} đ</b></td>
+                                            <td>
+                                                <b>{{number_format($total)}} đ</b>
+                                                <input type="hidden" name="tong_tien" value="{{$total}}">
+                                            </td>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -140,7 +148,7 @@
                                 <div class="single-payment-method show">
                                     <div class="payment-method-name">
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="cashon" name="paymentmethod" value="cash" class="custom-control-input" checked />
+                                            <input type="radio"  class="custom-control-input" checked />
                                             <label class="custom-control-label" for="cashon">Thanh toán khi giao hàng</label>
                                         </div>
                                     </div>
@@ -158,6 +166,7 @@
                     </div>
                 </div>
             </div>
+        </form>
         </div>
     </div>
     <!-- checkout main wrapper end -->
