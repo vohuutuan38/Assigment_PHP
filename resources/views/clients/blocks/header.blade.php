@@ -22,11 +22,13 @@
                                     </ul>
                                 </li>
                                 <li class="language">
-                                    <img src="{{asset('assets/client/img/icon/en.png')}}" alt="flag"> English
+                                    <img src="{{ asset('assets/client/img/icon/en.png') }}" alt="flag"> English
                                     <i class="fa fa-angle-down"></i>
                                     <ul class="dropdown-list">
-                                        <li><a href="#"><img src="{{asset('assets/client/img/icon/en.png')}}" alt="flag"> english</a></li>
-                                        <li><a href="#"><img src="{{asset('assets/client/img/icon/fr.png')}}" alt="flag"> french</a></li>
+                                        <li><a href="#"><img src="{{ asset('assets/client/img/icon/en.png') }}"
+                                                    alt="flag"> english</a></li>
+                                        <li><a href="#"><img src="{{ asset('assets/client/img/icon/fr.png') }}"
+                                                    alt="flag"> french</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -46,7 +48,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="index.html">
-                                <img src="{{asset('assets/client/img/logo/logo.png')}}" alt="Brand Logo">
+                                <img src="{{ asset('assets/client/img/logo/logo.png') }}" alt="Brand Logo">
                             </a>
                         </div>
                     </div>
@@ -59,17 +61,17 @@
                                 <!-- main menu navbar start -->
                                 <nav class="desktop-menu">
                                     <ul>
-                                        <li class="active"><a href="{{route('home.index')}}">Home </a>
-                                           
+                                        <li class="active"><a href="{{ route('home.index') }}">Home </a>
+
                                         </li>
                                         <li class="position-static"><a href="#">pages </a>
-                                         
+
                                         </li>
-                                        <li><a href="shop.html">shop    </a>
-                                          
+                                        <li><a href="shop.html">shop </a>
+
                                         </li>
                                         <li><a href="blog-left-sidebar.html">Blog </a>
-                                            
+
                                         </li>
                                         <li><a href="contact-us.html">Contact us</a></li>
                                     </ul>
@@ -82,11 +84,14 @@
 
                     <!-- mini cart area start -->
                     <div class="col-lg-4">
-                        <div class="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
+                        <div
+                            class="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
                             <div class="header-search-container">
-                                <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>
+                                <button class="search-trigger d-xl-none d-lg-block"><i
+                                        class="pe-7s-search"></i></button>
                                 <form class="header-search-box d-lg-none d-xl-block">
-                                    <input type="text" placeholder="Search entire store hire" class="header-search-field">
+                                    <input type="text" placeholder="Search entire store hire"
+                                        class="header-search-field">
                                     <button class="header-search-btn"><i class="pe-7s-search"></i></button>
                                 </form>
                             </div>
@@ -97,10 +102,12 @@
                                             <i class="pe-7s-user"></i>
                                         </a>
                                         <ul class="dropdown-list">
-                                            <li><a href="login-register.html">login</a></li>
-                                            <li><a href="login-register.html">register</a></li>
-                                            <li><a href="my-account.html">my account</a></li>
+                                            
                                             <li><a href="{{route('donhangs.index')}}">My order</a></li>
+                                            <li><a href="{{ route('account.index') }}">my account</a></li>
+                                            {{-- <li><a href="login-register.html">login</a></li>
+                                            <li><a href="login-register.html">register</a></li> --}}
+                                            <li><a href="{{ route('logout') }}">Logout</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -110,9 +117,10 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{route('cart.list')}}" class="minicart-btn">
+                                        <a href="{{ route('cart.list') }}" class="minicart-btn">
                                             <i class="pe-7s-shopbag"></i>
-                                            <div class="notification">{{session('cart') ? count(session('cart')) : '0' }}</div>
+                                            <div class="notification">
+                                                {{ session('cart') ? count(session('cart')) : '0' }}</div>
                                         </a>
                                     </li>
                                     
@@ -139,7 +147,7 @@
                     <div class="mobile-main-header">
                         <div class="mobile-logo">
                             <a href="index.html">
-                                <img src="{{asset('assets/client/img/logo/logo.png')}}" alt="Brand Logo">
+                                <img src="{{ asset('assets/client/img/logo/logo.png') }}" alt="Brand Logo">
                             </a>
                         </div>
                         <div class="mobile-menu-toggler">
@@ -212,8 +220,10 @@
                                     <li class="mega-title menu-item-has-children"><a href="#">column 02</a>
                                         <ul class="dropdown">
                                             <li><a href="product-details.html">product details</a></li>
-                                            <li><a href="product-details-affiliate.html">product details affiliate</a></li>
-                                            <li><a href="product-details-variable.html">product details variable</a></li>
+                                            <li><a href="product-details-affiliate.html">product details affiliate</a>
+                                            </li>
+                                            <li><a href="product-details-variable.html">product details variable</a>
+                                            </li>
                                             <li><a href="privacy-policy.html">privacy policy</a></li>
                                         </ul>
                                     </li>
@@ -255,8 +265,10 @@
                                     <li class="menu-item-has-children"><a href="#">products details</a>
                                         <ul class="dropdown">
                                             <li><a href="product-details.html">product details</a></li>
-                                            <li><a href="product-details-affiliate.html">product details affiliate</a></li>
-                                            <li><a href="product-details-variable.html">product details variable</a></li>
+                                            <li><a href="product-details-affiliate.html">product details affiliate</a>
+                                            </li>
+                                            <li><a href="product-details-variable.html">product details variable</a>
+                                            </li>
                                             <li><a href="product-details-group.html">product details group</a></li>
                                         </ul>
                                     </li>
@@ -287,7 +299,8 @@
                     <ul class="nav">
                         <li>
                             <div class="dropdown mobile-top-dropdown">
-                                <a href="#" class="dropdown-toggle" id="currency" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle" id="currency" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
                                     Currency
                                     <i class="fa fa-angle-down"></i>
                                 </a>
@@ -299,7 +312,8 @@
                         </li>
                         <li>
                             <div class="dropdown mobile-top-dropdown">
-                                <a href="#" class="dropdown-toggle" id="myaccount" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle" id="myaccount" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
                                     My Account
                                     <i class="fa fa-angle-down"></i>
                                 </a>
