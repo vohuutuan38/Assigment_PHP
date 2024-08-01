@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\DanhMuc;
+use App\Models\SanPham;
+use App\Models\BinhLuan;
+use Illuminate\Http\Request;
+use App\Models\HinhAnhSanPham;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SanPhamRequest;
-use App\Models\DanhMuc;
-use App\Models\HinhAnhSanPham;
-use App\Models\SanPham;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class SanPhamController extends Controller
 {
+    public $binhLuan;
+    public function __construct () {
+        $this->binhLuan = new BinhLuan();
+    }
     /**
      * Display a listing of the resource.
      */
@@ -85,7 +90,16 @@ class SanPhamController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $title = 'Chi tiết sản phẩm ';
+        $listDanhMuc = DanhMuc::query()->get();
+
+        $sanPham = SanPham::query()->findOrFail($id);
+
+        $binhLuan = $this->binhLuan->getById($id);
+
+        // dd($binhLuan);
+
+        return view('admins.sanphams.detail', compact('title','listDanhMuc','sanPham', 'binhLuan'));
     }
 
     /**
@@ -204,5 +218,16 @@ class SanPhamController extends Controller
         $sanPham->delete();
 
         return redirect()->route('admins.sanphams.index')->with('success','xóa sản phẩm thành công');
+    }
+
+    public function updateBinhLuan(Request $request)
+    {
+        $dataUdate = [
+            'trang_thai' => $request->trang_thai
+        ];
+        // $binh_luan = $this->binh_luans->find($id);
+        BinhLuan::query()->update($dataUdate);
+
+        return redirect()->route('admins.sanphams.show');
     }
 }

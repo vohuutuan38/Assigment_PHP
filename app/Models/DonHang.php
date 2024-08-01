@@ -41,23 +41,23 @@ class DonHang extends Model
     const DA_THANH_TOAN = 'da_thanh_toan';
 
 
-   protected $fillable = [
-    'ma_don_hang',
-    'user_id',
-    'ten_nguoi_nhan',
-    'email_nguoi_nhan',
-    'so_dien_thoai_nguoi_nhan',
-    'dia_chi_nguoi_nhan',
-    'ghi_chu',
-    'trang_thai_don_hang',
-    'trang_thai_thanh_toan',
-    'tien_hang',
-    'tien_ship',
-    'tong_tien',
+    protected $fillable = [
+        'ma_don_hang',
+        'user_id',
+        'ten_nguoi_nhan',
+        'email_nguoi_nhan',
+        'so_dien_thoai_nguoi_nhan',
+        'dia_chi_nguoi_nhan',
+        'ghi_chu',
+        'trang_thai_don_hang',
+        'trang_thai_thanh_toan',
+        'tien_hang',
+        'tien_ship',
+        'tong_tien',
     ];
 
     public function user(){
-        return $this->BelongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function chiTietDonHang(){

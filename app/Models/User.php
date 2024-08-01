@@ -53,5 +53,8 @@ class User extends Authenticatable
     public function donhang(){
         return $this->hasMany(DonHang::class);
     }
+    public function binhLuan(){
+        return $this->hasMany(BinhLuan::class);
+    }
     protected $dates = ['delete_at'];
 }
