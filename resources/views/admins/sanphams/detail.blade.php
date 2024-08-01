@@ -146,12 +146,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                        @foreach ($binhLuan as $item)
-                                        <form action="{{ route('admins.sanphams.updateBinhLuan') }}" method="post">
-                                            @csrf
-                                            @method('PUT')                                        
+                                    <form action="{{ route('admins.sanphams.updateBinhLuan', $sanPham->id) }}" method="post">
+                                        @csrf
+                                        @method('PUT')  
+                                        @foreach ($binhLuan as $index => $item)
                                         <tr>
+                                            
+                                            <td>
+                                                <input type="hidden" name="ids" value="{{ $item->id }}">
+                                            </td>
                                             <th scope="row">{{$item->name}}</th>
                                             <td >{{$item->noi_dung}}</td>
                                             <td>{{$item->thoi_gian}}</td>
@@ -167,16 +170,18 @@
                                                     <option selected value="1">Chưa Duyệt</option>  
                                                     @endif
                                                 </select>
-                                            </td>                                            
+                                            </td>
+                                            <td>
+                                             
+                                            </td>                                    
                                         </tr>
-                                            <div class="text-end mt-5 mb-2">
-                                                <button type="submit" class="btn btn-success ">Cập nhật trạng thái</button>
-                                            </div>
-                                            
-                                        </form>                                        
+                                
+                                                                         
                                         @endforeach
-
-                                   
+                                        <div class="text-end mt-5 mb-2">
+                                            <button type="submit" class="btn btn-success ">Cập nhật trạng thái</button>
+                                        </div>   
+                                    </form>      
                                 </tbody>
                             </table>
                         </div>

@@ -129,7 +129,7 @@ Route::middleware(['auth', 'auth.admin'])->prefix('admins')
                 Route::get('{id}/edit', [SanPhamController::class, 'edit'])->name('edit');
                 Route::put('{id}/update', [SanPhamController::class, 'update'])->name('update');
                 Route::delete('{id}/destroy', [SanPhamController::class, 'destroy'])->name('destroy');
-                Route::put('/updateBinhLuan', [SanPhamController::class, 'updateBinhLuan'])->name('updateBinhLuan');
+                Route::put('/updateBinhLuan/{id}', [SanPhamController::class, 'updateBinhLuan'])->name('updateBinhLuan');
             });
 
         Route::resource('user', UserAdminController::class);

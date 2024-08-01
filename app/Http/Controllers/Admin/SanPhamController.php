@@ -220,14 +220,16 @@ class SanPhamController extends Controller
         return redirect()->route('admins.sanphams.index')->with('success','xóa sản phẩm thành công');
     }
 
-    public function updateBinhLuan(Request $request)
+    public function updateBinhLuan(Request $request, string $id)
     {
         $dataUdate = [
             'trang_thai' => $request->trang_thai
         ];
+        $ids = $request->input('ids');
+        dd($ids);
         // $binh_luan = $this->binh_luans->find($id);
-        BinhLuan::query()->update($dataUdate);
+        BinhLuan::whereIn('id', $ids)->update($dataUdate);
 
-        return redirect()->route('admins.sanphams.show');
+        return redirect()->route('admins.sanphams.show', $id);
     }
 }
