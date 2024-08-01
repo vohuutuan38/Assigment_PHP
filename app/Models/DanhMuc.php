@@ -15,11 +15,11 @@ class DanhMuc extends Model
         'trang_thai'
     ];
     
-   protected $cast = [
-       'trang_thai' => 'boolean'
-   ];    
+    protected $cast = [
+        'trang_thai' => 'boolean'
+    ];    
 
-   public function sanPham(){
-    return $this->hasMany(SanPham::class);
-   }
+    public function sanPham(){
+        return $this->hasMany(SanPham::class);
+    }
 }

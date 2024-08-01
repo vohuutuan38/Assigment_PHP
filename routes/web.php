@@ -71,8 +71,14 @@ Route::get('product/detail/{id}', [ProductController::class, 'chiTietSanPham'])-
 Route::get('/list-cart', [CartController::class, 'listCart'])->name('cart.list');
 Route::post('/add-to-cart', [CartController::class, 'addCart'])->name('cart.add');
 Route::post('/update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/sanpham', [ProductController::class, 'index'])->name('sanpham.list');
+Route::get('sanphamdanhmuc/{id}', [ProductController::class, 'productCategory'])->name('sanphamdanhmuc.show');
+Route::get('/search', [ProductController::class, 'searchProduct'])->name('sanpham.search');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 Route::get('/', [HomeController::class, 'index']);
+
 
 // ROUTER DƠN HÀNG
 Route::middleware('auth')->prefix('donhangs')
@@ -123,6 +129,7 @@ Route::middleware(['auth', 'auth.admin'])->prefix('admins')
                 Route::get('{id}/edit', [SanPhamController::class, 'edit'])->name('edit');
                 Route::put('{id}/update', [SanPhamController::class, 'update'])->name('update');
                 Route::delete('{id}/destroy', [SanPhamController::class, 'destroy'])->name('destroy');
+                Route::put('/updateBinhLuan', [SanPhamController::class, 'updateBinhLuan'])->name('updateBinhLuan');
             });
 
         Route::resource('user', UserAdminController::class);

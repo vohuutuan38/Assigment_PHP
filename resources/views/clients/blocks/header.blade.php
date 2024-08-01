@@ -67,7 +67,13 @@
                                         <li class="position-static"><a href="#">pages </a>
 
                                         </li>
-                                        <li><a href="shop.html">shop </a>
+                                        <li class="active"><a href="{{ route('sanpham.list') }}">Shop<i class="fa fa-angle-down"></i></a>
+                                            <ul class="dropdown">
+                                                @foreach ($danhMuc as $dm)
+                                                    <li><a href="{{ route('sanphamdanhmuc.show', $dm->id) }}">{{ $dm->ten_danh_muc }}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
 
                                         </li>
                                         <li><a href="blog-left-sidebar.html">Blog </a>
@@ -89,16 +95,16 @@
                             <div class="header-search-container">
                                 <button class="search-trigger d-xl-none d-lg-block"><i
                                         class="pe-7s-search"></i></button>
-                                <form class="header-search-box d-lg-none d-xl-block">
-                                    <input type="text" placeholder="Search entire store hire"
+                                <form action="{{ route('sanpham.search') }}" class="header-search-box d-lg-none d-xl-block">
+                                    <input type="text" placeholder="Search entire store hire" name="search" value="{{ request('search') }}"
                                         class="header-search-field">
-                                    <button class="header-search-btn"><i class="pe-7s-search"></i></button>
+                                    <button type="submit" class="header-search-btn"><i class="pe-7s-search"></i></button>
                                 </form>
                             </div>
                             <div class="header-configure-area">
                                 <ul class="nav justify-content-end">
                                     <li class="user-hover">
-                                        <a href="#">
+                                        <a href="{{ route('login') }}">
                                             <i class="pe-7s-user"></i>
                                         </a>
                                         <ul class="dropdown-list">
