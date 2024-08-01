@@ -7,7 +7,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="welcome-message">
-                            <p>Welcome to Corano Jewelry online store</p>
+                            <p>Welcome to Mobile store</p>
                         </div>
                     </div>
                     <div class="col-lg-6 text-right">
@@ -48,7 +48,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="index.html">
-                                <img src="{{ asset('assets/client/img/logo/logo.png') }}" alt="Brand Logo">
+                                <img src="{{ asset('assets/client/img/logo/logo-1.jpg') }}" alt="Brand Logo">
                             </a>
                         </div>
                     </div>
