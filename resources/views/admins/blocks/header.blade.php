@@ -177,7 +177,7 @@
                         <div class="dropdown-divider"></div>
 
                         <!-- item-->
-                        <a class='dropdown-item notify-item' href='auth-logout.html'>
+                        <a class='dropdown-item notify-item' href='{{ route('logout') }}'>
                             <i class="mdi mdi-location-exit fs-16 align-middle"></i>
                             <span>Logout</span>
                         </a>

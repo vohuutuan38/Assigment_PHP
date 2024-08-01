@@ -163,56 +163,38 @@
                                             </table>
                                         </div>
                                         <div class="tab-pane fade" id="tab_three">
-                                            <form action="#" class="review-form">
-                                                <h5>1 review for <span>Chaz Kangeroo</span></h5>
-                                                <div class="total-reviews">
-                                                    <div class="rev-avatar">
-                                                        <img src="assets/img/about/avatar.jpg" alt="">
-                                                    </div>
-                                                    <div class="review-box">
-                                                        <div class="ratings">
-                                                            <span class="good"><i class="fa fa-star"></i></span>
-                                                            <span class="good"><i class="fa fa-star"></i></span>
-                                                            <span class="good"><i class="fa fa-star"></i></span>
-                                                            <span class="good"><i class="fa fa-star"></i></span>
-                                                            <span><i class="fa fa-star"></i></span>
-                                                        </div>
-                                                        <div class="post-author">
-                                                            <p><span>admin -</span> 30 Mar, 2019</p>
-                                                        </div>
-                                                        <p>Aliquam fringilla euismod risus ac bibendum. Sed sit
-                                                            amet sem varius ante feugiat lacinia. Nunc ipsum nulla,
-                                                            vulputate ut venenatis vitae, malesuada ut mi. Quisque
-                                                            iaculis, dui congue placerat pretium, augue erat
-                                                            accumsan lacus</p>
-                                                    </div>
+                                            @foreach ($binhLuan as $bl)
+                                            <h5>1 review for <span>{{ $bl->name }}</span></h5>
+                                            <div class="total-reviews">
+                                                <div class="rev-avatar">
+                                                    <img src="{{ asset('assets/client/img/about/avatar.jpg') }}" alt="">
                                                 </div>
-                                                <div class="form-group row">
-                                                    <div class="col">
-                                                        <label class="col-form-label"><span class="text-danger">*</span>
-                                                            Your Name</label>
-                                                        <input type="text" class="form-control" required>
+                                                <div class="review-box">
+                                                    <div class="ratings">
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span><i class="fa fa-star"></i></span>
                                                     </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <div class="col">
-                                                        <label class="col-form-label"><span class="text-danger">*</span>
-                                                            Your Email</label>
-                                                        <input type="email" class="form-control" required>
+                                                    <div class="post-author">
+                                                        <p><span>{{ $bl->role }} </span>{{ $bl->thoi_gian }}</p>
                                                     </div>
+                                                    <p>{{ $bl->noi_dung }}</p>
                                                 </div>
+                                            </div>                                                    
+                                            @endforeach                                            
+                                            @if (auth()->check())
+                                            <form action="{{ route('binhluan.store', $sanPham->id) }}" class="review-form" method="POST">
+                                                @csrf
                                                 <div class="form-group row">
                                                     <div class="col">
                                                         <label class="col-form-label"><span class="text-danger">*</span>
                                                             Your Review</label>
-                                                        <textarea class="form-control" required></textarea>
-                                                        <div class="help-block pt-10"><span
-                                                                class="text-danger">Note:</span>
-                                                            HTML is not translated!
-                                                        </div>
+                                                        <textarea name="noi_dung" class="form-control" required></textarea>
                                                     </div>
                                                 </div>
-                                                <div class="form-group row">
+                                                {{-- <div class="form-group row">
                                                     <div class="col">
                                                         <label class="col-form-label"><span class="text-danger">*</span>
                                                             Rating</label>
@@ -228,11 +210,17 @@
                                                         <input type="radio" value="5" name="rating" checked>
                                                         &nbsp;Good
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="buttons">
                                                     <button class="btn btn-sqr" type="submit">Continue</button>
                                                 </div>
-                                            </form> <!-- end of review-form -->
+                                            </form> <!-- end of review-form -->      
+                                            @else
+                                            <div class="help-block pt-10"><span
+                                                class="text-danger">Note:</span>
+                                            Đăng nhập để bình luận
+                                            </div>
+                                            @endif                                           
                                         </div>
                                     </div>
                                 </div>
