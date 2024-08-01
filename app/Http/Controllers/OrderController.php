@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DanhMuc;
 use App\Models\DonHang;
+use App\Mail\OrderConfirm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\OrderRequest;
-use App\Mail\OrderConfirm;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -24,8 +25,10 @@ class OrderController extends Controller
         $type_cho_xac_nhan = DonHang::CHO_XAC_NHAN;
 
         $type_dang_van_chuyen = DonHang::DANG_VAN_CHUYEN;
-         
-      return view('clients.donhangs.index',compact('donHangs','trangThaiDonHang','type_cho_xac_nhan','type_dang_van_chuyen'));
+
+        
+        $danhMuc = DanhMuc::get();
+      return view('clients.donhangs.index',compact('donHangs','trangThaiDonHang','type_cho_xac_nhan','type_dang_van_chuyen','danhMuc'));
     }
 
     /**
@@ -47,8 +50,8 @@ class OrderController extends Controller
 
             $total =$subTotal + $shipping;
 
-
-            return view('clients.donhangs.create',compact('carts','subTotal','total','shipping'));
+            $danhMuc = DanhMuc::get();
+            return view('clients.donhangs.create',compact('carts','subTotal','total','shipping','danhMuc'));
          }
        return redirect()->route('cart.list');
     }
@@ -114,8 +117,9 @@ class OrderController extends Controller
         $trangThaiDonHang = DonHang::TRANG_THAI_DON_HANG;
 
         $trangThaiThanhToan = DonHang::TRANG_THAI_THANH_TOAN;
+        $danhMuc = DanhMuc::get();
 
-        return view('clients.donhangs.show',compact('donHang','trangThaiDonHang','trangThaiThanhToan'));
+        return view('clients.donhangs.show',compact('donHang','trangThaiDonHang','trangThaiThanhToan','danhMuc'));
     }
 
     /**

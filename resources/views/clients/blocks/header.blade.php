@@ -114,6 +114,13 @@
                                             {{-- <li><a href="login-register.html">login</a></li>
                                             <li><a href="login-register.html">register</a></li> --}}
                                             <li><a href="{{ route('logout') }}">Logout</a></li>
+                                            @php
+                                            use App\Models\User;
+                                            @endphp
+                                                 @if (Auth::check() && Auth::user()-> role === User::ROLE_ADMIN)
+                                                        <li><a class="text-success" href="{{ route('admins.dashbroad') }}">Admin</a></li>
+                                                 @endif
+                                           
                                         </ul>
                                     </li>
                                     <li>

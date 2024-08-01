@@ -139,7 +139,7 @@
                                             <a data-bs-toggle="tab" href="#tab_two">information</a>
                                         </li>
                                         <li>
-                                            <a data-bs-toggle="tab" href="#tab_three">reviews (1)</a>
+                                            <a data-bs-toggle="tab" href="#tab_three">Comment</a>
                                         </li>
                                     </ul>
                                     <div class="tab-content reviews-tab">
