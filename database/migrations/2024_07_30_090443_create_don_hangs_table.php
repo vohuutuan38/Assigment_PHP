@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('trang_thai_thanh_toan')->default(DonHang::CHUA_THANH_TOAN);
 
             $table->double('tien_hang');
-            $table->double('tong_ship');
+            $table->double('tien_ship');
             $table->double('tong_tien');
 
 

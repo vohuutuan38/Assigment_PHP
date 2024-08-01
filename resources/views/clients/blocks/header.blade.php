@@ -102,6 +102,8 @@
                                             <i class="pe-7s-user"></i>
                                         </a>
                                         <ul class="dropdown-list">
+                                            
+                                            <li><a href="{{route('donhangs.index')}}">My order</a></li>
                                             <li><a href="{{ route('account.index') }}">my account</a></li>
                                             {{-- <li><a href="login-register.html">login</a></li>
                                             <li><a href="login-register.html">register</a></li> --}}
@@ -121,6 +123,7 @@
                                                 {{ session('cart') ? count(session('cart')) : '0' }}</div>
                                         </a>
                                     </li>
+                                    
                                 </ul>
                             </div>
                         </div>
