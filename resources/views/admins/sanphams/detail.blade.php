@@ -167,11 +167,13 @@
                                                     <option selected value="1">Chưa Duyệt</option>  
                                                     @endif
                                                 </select>
+                                                <div class="text-end mt-5 mb-2">
+                                                    <button type="submit" class="btn btn-success ">Cập nhật trạng thái</button>
+                                                </div>
                                             </td>                                            
+                                           
                                         </tr>
-                                            <div class="text-end mt-5 mb-2">
-                                                <button type="submit" class="btn btn-success ">Cập nhật trạng thái</button>
-                                            </div>
+                                            
                                             
                                         </form>                                        
                                         @endforeach

@@ -98,7 +98,7 @@ Route::middleware(['auth', 'auth.admin'])->prefix('admins')
     ->as('admins.') // as này để nối với name trong route hoặc as sẽ nối với as
     ->group(function () {
 
-        Route::get('/dashboard', function () {
+        Route::get('/', function () {
             return view('admins.dashbroad');
         })->name('dashbroad');
 
