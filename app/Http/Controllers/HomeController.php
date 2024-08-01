@@ -11,7 +11,8 @@ class HomeController extends Controller
     public function index(){
         $danhMuc = DanhMuc::get();
         $sanPham = SanPham::query()->get();
-
-        return view('clients.index', compact('sanPham', 'danhMuc'));
+        $sanPhamYeuThich = SanPham::query()->where('luot_xem','>','10')->get();
+        
+        return view('clients.index', compact('sanPham', 'danhMuc','sanPhamYeuThich'));
     }
 }

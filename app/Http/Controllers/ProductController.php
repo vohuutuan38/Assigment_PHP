@@ -16,13 +16,21 @@ class ProductController extends Controller
   public function index () {
     $danhMuc = DanhMuc::get();
     $listSanPham = SanPham::query()->get();
+    
     return view('clients.sanphams.cuahang',compact('danhMuc', 'listSanPham'));  
   }
 
   public function chiTietSanPham (string $id){
     $danhMuc = DanhMuc::get();
     $sanPham = SanPham::query()->findOrFail($id);
+
     $binhLuan = $this->binhLuan->getById($id);
+
+    $sanPham->luot_xem = $sanPham->luot_xem + 1;
+    $sanPham->save();
+    // dd($sanPham->luot_xem);
+    $sanPhamYeuThich = SanPham::query()->where('luot_xem','>','10')->get();
+
     $listSanPham = SanPham::query()->get();
     return view('clients.sanphams.chitiet',compact('listSanPham', 'sanPham', 'danhMuc', 'binhLuan'));  
   }
