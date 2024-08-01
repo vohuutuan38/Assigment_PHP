@@ -76,8 +76,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/sanpham', [ProductController::class, 'index'])->name('sanpham.list');
 Route::get('sanphamdanhmuc/{id}', [ProductController::class, 'productCategory'])->name('sanphamdanhmuc.show');
 Route::get('/search', [ProductController::class, 'searchProduct'])->name('sanpham.search');
-Route::get('/home', [HomeController::class, 'index'])->name('home.index');
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::post('/binhluan/{san_pham_id}', [ProductController::class, 'binhLuan'])->name('binhluan.store');
 
 
 // ROUTER DƠN HÀNG
