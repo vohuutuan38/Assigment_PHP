@@ -267,7 +267,7 @@
                         @foreach ($listSanPham as $item)
                         <div class="product-item">
                             <figure class="product-thumb">
-                                <a href="product-details.html">
+                                <a href="{{route('products.detail',$item->id)}}">
                                     <img class="img" src="{{Storage::url($item->hinh_anh)}}" alt="product">
                                    
                                 </a>
@@ -299,7 +299,7 @@
                                 </div>
                                
                                 <h6 class="product-name">
-                                    <a href="product-details.html">{{$item->ten_san_pham}}</a>
+                                    <a href="{{route('products.detail',$item->id)}}">{{$item->ten_san_pham}}</a>
                                 </h6>
                                 <div class="price-box">
                                     <span class="price-regular">{{number_format($item->gia_khuyen_mai)}}</span>
