@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\CheckRoleAdminMiddleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\UserController as UserAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -121,6 +122,8 @@ Route::middleware(['auth', 'auth.admin'])->prefix('admins')
                 Route::put('{id}/update', [SanPhamController::class, 'update'])->name('update');
                 Route::delete('{id}/destroy', [SanPhamController::class, 'destroy'])->name('destroy');
             });
+
+        Route::resource('user', UserAdminController::class);
     });
 
 // Route Quản lý tài khoản
