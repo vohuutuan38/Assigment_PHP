@@ -71,6 +71,7 @@
                                 </td>
                                 <td>
                                     <a href="{{route('admins.sanphams.edit',$item->id)}}"><i class="mdi mdi-pencil text-muted fs-18 rounded-2 border p-1 me-1"></i></a>
+                                    <a href="{{route('admins.sanphams.show',$item->id)}}"><i class="mdi mdi-eye text-muted fs-18 rounded-2 border p-1 me-1"></i></a>
                                     
                                     <form action="{{route('admins.sanphams.destroy',$item->id)}}" method="POST" class="d-inline" onsubmit="return confirm('Bạn có muốn xóa sản phẩm không ')" >
                                         @csrf

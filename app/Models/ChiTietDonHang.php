@@ -18,10 +18,10 @@ class ChiTietDonHang extends Model
     ];
 
     public function donHang(){
-        return $this->BelongsTo(DonHang::class);
+        return $this->belongsTo(DonHang::class);
     }
 
     public function sanPham(){
-        return $this->BelongsTo(SanPham::class);
+        return $this->belongsTo(SanPham::class);
     }
 }

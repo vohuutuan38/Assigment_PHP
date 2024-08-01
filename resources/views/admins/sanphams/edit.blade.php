@@ -244,11 +244,11 @@
    
        })
        
-// Hiển thị nội dung cũ
+    // Hiển thị nội dung cũ
        var old_content = `{!! $sanPham->noi_dung !!}`;
        quill.root.innerHTML = old_content ;
 
-// Cập nhật lại textarea ẩn khi nội dung của qill-editer thay đổi
+    // Cập nhật lại textarea ẩn khi nội dung của qill-editer thay đổi
      quill.on('text-change',function(){
         var html = quill.root.innerHTML;
         document.getElementById('noi_dung_content').value = html;
