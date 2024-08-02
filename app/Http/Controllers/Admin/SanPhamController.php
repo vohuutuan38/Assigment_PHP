@@ -94,8 +94,11 @@ class SanPhamController extends Controller
         $listDanhMuc = DanhMuc::query()->get();
 
         $sanPham = SanPham::query()->findOrFail($id);
-
-        $binhLuan = $this->binhLuan->getById($id);
+        // dd($sanPham);
+        $binhLuan = BinhLuan::where('san_pham_id',$sanPham->id)
+        ->join('users', 'binh_luans.tai_khoan_id', '=', 'users.id')
+        ->select('binh_luans.*', 'users.name') 
+        ->get();
 
         // dd($binhLuan);
 
@@ -220,14 +223,15 @@ class SanPhamController extends Controller
         return redirect()->route('admins.sanphams.index')->with('success','xóa sản phẩm thành công');
     }
 
-    public function updateBinhLuan(Request $request)
+    public function updateBinhLuan(Request $request,String $id)
     {
         $dataUdate = [
             'trang_thai' => $request->trang_thai
         ];
-        // $binh_luan = $this->binh_luans->find($id);
-        BinhLuan::query()->update($dataUdate);
+        // dd($id); 
+        $binh_luan = BinhLuan::query()->findOrFail($id);
+        $binh_luan->update($dataUdate);
 
-        return redirect()->route('admins.sanphams.show');
+        return redirect()->back();
     }
 }

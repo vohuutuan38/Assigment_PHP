@@ -148,7 +148,7 @@
                                 <tbody>
 
                                         @foreach ($binhLuan as $item)
-                                        <form action="{{ route('admins.sanphams.updateBinhLuan') }}" method="post">
+                                        <form action="{{ route('admins.sanphams.updateBinhLuan',$item->id) }}" method="post">
                                             @csrf
                                             @method('PUT')                                        
                                         <tr>
