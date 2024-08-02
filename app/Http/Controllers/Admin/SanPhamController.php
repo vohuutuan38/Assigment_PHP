@@ -225,10 +225,14 @@ class SanPhamController extends Controller
         $dataUdate = [
             'trang_thai' => $request->trang_thai
         ];
-        $ids = $request->input('ids');
+
+        $ids = [
+            $request->input('ids')
+        ];
+        
         dd($ids);
         // $binh_luan = $this->binh_luans->find($id);
-        BinhLuan::whereIn('id', $ids)->update($dataUdate);
+        BinhLuan::whereIn('binh_luans.id', $ids)->update($dataUdate);
 
         return redirect()->route('admins.sanphams.show', $id);
     }

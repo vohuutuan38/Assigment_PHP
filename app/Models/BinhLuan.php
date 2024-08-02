@@ -15,7 +15,7 @@ class BinhLuan extends Model
                         ->join('users', 'binh_luans.tai_khoan_id', '=', 'users.id')
                         ->join('san_phams', 'binh_luans.san_pham_id', '=', 'san_phams.id')
                         ->where('binh_luans.san_pham_id', $id)
-                        ->select('binh_luans.*', 'users.*')
+                        ->select('binh_luans.*', 'users.name')
                         ->get();
 
         return $binhLuan;

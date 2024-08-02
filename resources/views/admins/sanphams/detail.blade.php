@@ -151,10 +151,7 @@
                                         @method('PUT')  
                                         @foreach ($binhLuan as $index => $item)
                                         <tr>
-                                            
-                                            <td>
-                                                <input type="hidden" name="ids" value="{{ $item->id }}">
-                                            </td>
+                                            <input type="text" name="ids" value="{{ $item->id }}">
                                             <th scope="row">{{$item->name}}</th>
                                             <td >{{$item->noi_dung}}</td>
                                             <td>{{$item->thoi_gian}}</td>
