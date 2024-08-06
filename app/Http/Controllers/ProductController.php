@@ -62,6 +62,6 @@ class ProductController extends Controller
     $data['san_pham_id'] = $san_pham_id;
     BinhLuan::create($data);
 
-    return redirect()->route('products.detail', $san_pham_id);
+    return redirect()->back();
   }
 }

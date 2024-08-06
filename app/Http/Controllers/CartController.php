@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DanhMuc;
 use App\Models\SanPham;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,8 @@ class CartController extends Controller
         $shipping = 30000;
         $total = $subTotal + $shipping;
         // dd($total);
-       return view('clients.sanphams.giohang',compact('cart','subTotal','shipping','total'));
+        $danhMuc = DanhMuc::get();
+       return view('clients.sanphams.giohang',compact('cart','subTotal','shipping','total','danhMuc'));
     }
 
     public function addCart(Request $request){

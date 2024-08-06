@@ -13,7 +13,7 @@
                         <div class="widget-title">
                             <div class="widget-logo">
                                 <a href="index.html">
-                                    <img src="{{asset('assets/client/img/logo/logo.png')}}" alt="brand logo">
+                                    <img src="{{asset('assets/client/img/logo/logo-1.jpg')}}" alt="brand logo">
                                 </a>
                             </div>
                         </div>

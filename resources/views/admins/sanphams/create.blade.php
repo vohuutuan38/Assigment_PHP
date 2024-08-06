@@ -191,7 +191,7 @@
                       
                     </div>
                     <div class="d-flex justify-content-center ">
-                        <button type="submit" class="btn btn-primary">Thêm Danh mục</button>
+                        <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
                      </div>
                     </form>
                 </div>

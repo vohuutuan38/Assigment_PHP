@@ -17,9 +17,8 @@ class AuthController extends Controller
         // dd($user);
         // attempt là để so sánh đối chiếu có trùng với bảng user khong
         if(Auth::attempt($user)){
-           return redirect()->intended('admins/sanphams');
+           return redirect()->intended('/');
         }
-        return redirect()->intended('/');
 
         return  redirect()->back()->withErrors([
             'email' => 'Thông tin người dùng nhập không đúng',
@@ -42,7 +41,7 @@ class AuthController extends Controller
 
          Auth::login($user);
 
-         return redirect()->intended('home');
+         return redirect()->intended('/');
 
     }
 

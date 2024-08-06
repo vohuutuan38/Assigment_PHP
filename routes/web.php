@@ -98,7 +98,7 @@ Route::middleware(['auth', 'auth.admin'])->prefix('admins')
     ->as('admins.') // as này để nối với name trong route hoặc as sẽ nối với as
     ->group(function () {
 
-        Route::get('/dashboard', function () {
+        Route::get('/', function () {
             return view('admins.dashbroad');
         })->name('dashbroad');
 
@@ -129,7 +129,7 @@ Route::middleware(['auth', 'auth.admin'])->prefix('admins')
                 Route::get('{id}/edit', [SanPhamController::class, 'edit'])->name('edit');
                 Route::put('{id}/update', [SanPhamController::class, 'update'])->name('update');
                 Route::delete('{id}/destroy', [SanPhamController::class, 'destroy'])->name('destroy');
-                Route::put('/updateBinhLuan/{id}', [SanPhamController::class, 'updateBinhLuan'])->name('updateBinhLuan');
+                Route::put('{id}/updateBinhLuan', [SanPhamController::class, 'updateBinhLuan'])->name('updateBinhLuan');
             });
 
         Route::resource('user', UserAdminController::class);
