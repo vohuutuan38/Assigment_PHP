@@ -321,7 +321,7 @@
                     <div class="categories-group-wrapper">
                         <!-- section title start -->
                         <div class="section-title-append">
-                            <h4>Sản Phẩm yêu thích</h4>
+                            <h4>Sản Phẩm Lượt Xem Nhiều Nhất</h4>
                             <div class="slick-append"></div>
                         </div>
                         <!-- section title start -->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DanhMuc;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,7 @@ class UserController extends Controller
         $params['phone'] = $user->phone;
         $params['address'] = $user->address;
         $params['email'] = $user->email;
+        $params['danhMuc'] = DanhMuc::get();
         // dd($params);
         return view('clients.account.index', $params);
     }

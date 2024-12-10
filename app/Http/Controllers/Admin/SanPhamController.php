@@ -54,7 +54,7 @@ class SanPhamController extends Controller
            $params['is_hot_deal']= $request->has('is_hot_deal') ? 1 : 0 ;
            $params['is_show_home']= $request->has('is_show_home') ? 1 : 0 ;
 
-           // Xử lý hình ảnh đại diện
+           // Xử lý hình ảnh đại diện   
 
            if($request->hasFile('hinh_anh')){
             $params['hinh_anh']= $request->file('hinh_anh')->store('uploads/sanpham','public');

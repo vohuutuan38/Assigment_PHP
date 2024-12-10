@@ -143,7 +143,7 @@
                                         <th scope="col">Nội dung</th>
                                         <th scope="col">Ngày đăng</th>
                                         <th scope="col">Trạng thái</th> 
-                                        <th scope="col">Hành động</th> 
+                                        <th scope="col">Hành động   </th> 
                                     </tr>
                                 </thead>
                                 <tbody>
